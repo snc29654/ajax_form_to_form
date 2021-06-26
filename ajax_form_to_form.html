@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>送信フォームに受信データを入れる</title>
+  <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $('#send').click(function() {
+      var data = {'request' : $('#request').val()};
+      $.ajax({
+        type: "POST",
+        url: "send2.php",
+        data: data,
+      }).success(function(data, dataType) {
+	document.getElementById( "request" ).value = data ;
+      }).error(function(XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+      });
+      return false;
+    });
+  });
+  </script>
+</head>
+<body>
+  <p>フォーム</p>
+  <form method="post">
+    <p><textarea id="request" cols="82" rows="1">この文字列を送信して戻します</textarea></p>
+    <p><input id="send" value="送信" type="submit" /></p>
+  </form>
+</body>
+​</html>
