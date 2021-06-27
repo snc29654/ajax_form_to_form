@@ -14,7 +14,7 @@
         url: "send2.php",
         data: data,
       }).success(function(data, dataType) {
-	document.getElementById( "request" ).value = data ;
+	document.getElementById( "response" ).value = data ;
       }).error(function(XMLHttpRequest, textStatus, errorThrown) {
         alert('Error : ' + errorThrown);
       });
@@ -26,7 +26,8 @@
 <body>
   <p>フォーム</p>
   <form method="post">
-    <p><textarea id="request" cols="82" rows="1">この文字列を送信して戻します</textarea></p>
+    <p><textarea id="request" cols="82" rows="1">あいうえお</textarea></p>
+    <p><textarea id="response" cols="82" rows="1"></textarea></p>
     <p><input id="send" value="送信" type="submit" /></p>
   </form>
 </body>

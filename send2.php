@@ -5,7 +5,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])
 {
   if (isset($_POST['request']))
   {
-      echo $_POST['request']." + PHPで付加しています";
+      echo $_POST['request']." をPHPが受け取りました";
   }
   else
   {
